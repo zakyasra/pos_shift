@@ -8,7 +8,7 @@ odoo.define('custom_sudo_pos_shift.models', function (require) {
         class PosShiftPosGlobalState extends PosGlobalState {
             constructor(obj) {
                 super(obj);
-                console.log("------o90", this);
+                // console.log("------o90", this);
             }
 
             async _processData(loadedData) {
@@ -27,7 +27,7 @@ odoo.define('custom_sudo_pos_shift.models', function (require) {
             }
 
             set_shift(shift) {
-                this.shift = shift
+                this.shift_id = shift
             }
         }
     Registries.Model.extend(PosGlobalState, PosShiftPosGlobalState);
@@ -37,19 +37,19 @@ odoo.define('custom_sudo_pos_shift.models', function (require) {
             constructor(obj, options) {
                 super(...arguments);
 
-                this.shift = this.pos.default_pos_shift_ids.id
+                this.shift_id = this.pos.default_pos_shift_ids.id
             }
 
             export_as_JSON() {
                 const res = super.export_as_JSON();
-                res.shift = this.shift;
-                console.log("===== shift berubah", res);
+                res.shift_id = this.shift_id;
+                // console.log("===== shift berubah", res);
                 return res;
             }
 
             init_from_JSON(json) {
                 super.init_from_JSON(...arguments);
-                this.shift = json.shift;
+                this.shift_id = json.shift;
             }
         }
     Registries.Model.extend(Order, PosShiftOrder);

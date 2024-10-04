@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='user_id']" position="after">
-                <field name="shift" readonly="1" />
+                <field name="shift_id" readonly="1" />
             </xpath>
         </field>
     </record>

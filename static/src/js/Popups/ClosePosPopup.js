@@ -103,8 +103,8 @@ odoo.define("custom_sudo_pos_shift.ClosePosPopup", function (require) {
                         args: [[], this.shift.id]
                     })
 
+                    this.closePos()
                 }
-                this.closePos()
             }
         }
     Registries.Component.extend(ClosePosPopup, SudoClosePosPopup);
